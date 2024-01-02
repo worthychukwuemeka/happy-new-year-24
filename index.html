@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Set the character set for the document to UTF-8 -->
+    <meta charset="UTF-8">
+    <!-- Configure the viewport for responsive design -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Set the title of the HTML document -->
+    <title>Day 15 - Interactive Happy New Year Animation</title>
+    <!-- Link to an external stylesheet for styling -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Preconnect to Google Fonts server -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- Preconnect to Google Fonts server with crossorigin attribute -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Import and apply the Kanit font family from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Inline CSS to import and apply the Libre Baskerville font family -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+    </style>
+</head>
+
+<body>
+    <!-- Create a container div for the animated text -->
+    <div class="container">
+        <!-- First set of animated text with initial style parameter -->
+        <div class="text" style="--n:0;">
+            <span style="--y:0;">2</span>
+            <span style="--y:1;">2</span>
+            <span style="--y:2;">3</span>
+            <span style="--y:3;">4</span>
+        </div>
+        <!-- Second set of animated text with initial style parameter -->
+        <div class="text" style="--n:1;">
+            <span style="--y:0;">0</span>
+            <span style="--y:1;">1</span>
+            <span style="--y:2;">2</span>
+            <span style="--y:3;">3</span>
+        </div>
+        <!-- Third set of animated text with initial style parameter -->
+        <div class="text" style="--n:2;">
+            <span style="--y:0;">2</span>
+            <span style="--y:1;">6</span>
+            <span style="--y:2;">7</span>
+            <span style="--y:3;">8</span>
+        </div>
+        <!-- Fourth set of animated text with initial style parameter -->
+        <div class="text" style="--n:3;">
+            <span style="--y:0;">3</span>
+            <span style="--y:1;">2</span>
+            <span style="--y:2;">1</span>
+            <span style="--y:3;">4</span>
+        </div>
+    </div>
+    
+    <!-- Button to trigger the animation -->
+    <button>Click on me for a special message, </button>
+    
+    <!-- JavaScript code to handle button click and toggle CSS classes -->
+    <script>
+        // Select the button element
+        let h2 = document.querySelector('button');
+        // Select the container with animated text
+        let container = document.querySelector('.container');
+        // Add a click event listener to the button
+        h2.onclick = function(){
+            // Toggle the 'newyear' class on the container
+            container.classList.toggle('newyear');
+            // Toggle the 'active' class on the button
+            this.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

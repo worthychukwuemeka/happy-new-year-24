@@ -1,0 +1,146 @@
+/* Apply styles to all elements, resetting margin, padding, and using border-box box-sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* Styles for the body element */
+body {
+    /* Flex container settings for centering content */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Set minimum height to 100% of the viewport height */
+    min-height: 100vh;
+    /* Hide overflow */
+    overflow: hidden;
+    /* Background color */
+    background: #fafafa;
+}
+
+/* Styles for the main container */
+.container {
+    /* Absolute positioning for better control */
+    position: absolute;
+    /* Flex container settings with 3D transformations */
+    display: flex;
+    transform-style: preserve-3d;
+    /* Set the gap between child elements */
+    gap: 10px;
+    /* Apply 3D rotation to the container */
+    transform: rotateY(30deg) rotateX(10deg);
+}
+
+/* Styles for the animated text elements */
+.text {
+    /* Relative positioning for child elements */
+    position: relative;
+    /* Set fixed width and height for each text element */
+    width: 100px;
+    height: 100px;
+    /* Apply 3D transformations to the text elements */
+    transform-style: preserve-3d;
+    /* Smooth transition with delay based on the variable --y */
+    transition: 2.5s ease-in-out;
+    transition-delay: calc(0.25s * var(--y));
+}
+
+/* Additional styles when the 'newyear' class is present on the container */
+.container.newyear .text {
+    transform: rotateX(calc(-360deg * 1));
+}
+
+.container.newyear .text:last-child {
+    transform: rotateX(calc(-630deg * 1));
+}
+
+/* Styles for the individual numbers within the text elements */
+.text span {
+    /* Absolute positioning within the text element */
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Take up the full width and height of the text element */
+    width: 100%;
+    height: 100%;
+    /* Center the text horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Text color, size, and background gradient */
+    color: #fff;
+    font-size: 4em;
+    /* Disable text selection cursor */
+    cursor: default;
+    background: linear-gradient(#a1a1a1, #a9a9a9);
+    /* Apply 3D transformations to the text */
+    transform-style: preserve-3d;
+    transform: rotateX(calc(90deg * var(--y))) translateZ(50px);
+}
+
+/* Pseudo-element for a left-side background of the text */
+.text::before {
+    /* Empty content for the pseudo-element */
+    content: '';
+    /* Absolute positioning covering the entire text element */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* Background color for the pseudo-element */
+    background: #7b7b7b;
+    /* Set the origin of the rotation to the left side */
+    transform-origin: left;
+    /* Apply 3D rotation to the pseudo-element */
+    transform: rotateY(90deg) translateX(-50px);
+}
+
+/* Additional styles for the last text element when the 'newyear' class is present */
+.text:last-child span {
+    background: linear-gradient(#ff6aab, #f476ac);
+}
+
+/* Styles for the button element */
+button {
+    /* Absolute positioning at the bottom of the container */
+    position: absolute;
+    bottom: 50px;
+    /* Text color and font size */
+    color: #404040;
+    font-size: 2em;
+    /* Smooth transition effect */
+    transition: 0.5s;
+    /* Cursor style */
+    cursor: pointer;
+    /* Font styles and dimensions */
+    font-family: 'Libre Baskerville', serif;
+    font-size: large;
+    font-style: italic;
+    width: 500px;
+    height: 50px;
+}
+
+/* Additional styles for the button when it has the 'active' class */
+button.active {
+    /* Change text color and apply a text shadow */
+    color: #404040;
+    text-shadow: 0 0 20px #404040, 0 0 50px #fff;
+}
+
+/* Pseudo-element for text after the button content */
+button::after {
+    /* Content for the pseudo-element */
+    content: 'now!';
+    /* Smooth transition effect */
+    transition: 0.5s;
+    /* Font family */
+    font-family: 'Libre Baskerville', serif;
+}
+
+/* Additional styles for the pseudo-element when the button has the 'active' class */
+button.active::after {
+    /* Change text color and apply a text shadow */
+    color: #f476ac;
+    text-shadow: 0 0 20px #f476ac, 0 0 50px #f476ac;
+}
